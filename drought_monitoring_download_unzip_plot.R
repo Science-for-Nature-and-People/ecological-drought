@@ -22,10 +22,10 @@ library(rgdal) # package that provides a inteface to the GDAL/OGR library, power
 #### CONSTANTS ####
 
 ## Drought Monitoring Website
-URL = "http://droughtmonitor.unl.edu/data/shapefiles_m/"
+URL <- "http://droughtmonitor.unl.edu/data/shapefiles_m/"
 
 ## Filename
-ZIPFILE_EXT = "_USDM_M.zip"
+ZIPFILE_EXT <- "_USDM_M.zip"
 
 
 #### FUNCTIONS ####
@@ -59,8 +59,8 @@ yearlyimport <- function(my_year, path_to_wd , download_status=T, plotting_statu
   my_year <- toString(my_year)
   
   #Full zip archive name to download
-  zipfile_name = paste0(my_year,ZIPFILE_EXT)
-  full_url = paste0(URL,zipfile_name)
+  zipfile_name <- paste0(my_year,ZIPFILE_EXT)
+  full_url <- paste0(URL,zipfile_name)
   
   ## dowload the original zip file containing the weekly zip data
   if (download_status){
