@@ -23,7 +23,9 @@ Most of the specifications in this section may be left alone. There are several 
 
 main\_path: path to your project working directory.
 
-admin\_shp: name of your administrative boundary polygon shapefile (e.g., ‘US_states.shp’), which should be located in your working directory (main_path). Be sure to use single or double quotation marks and to include the .shp extension for the shapefile.
+admin\_path: path to the shapefile contining the units you want to use for the drought percentage area computation
+
+extract\_shpname: name of your administrative boundary polygon shapefile (e.g., ‘US\_states.shp’), which should be located in your working directory (main_path). Be sure to use single or double quotation marks and to include the .shp extension for the shapefile.
 
 ugeoid: field name of the unique identifier of your polygons you want to use to calculate the percentage drought area.
 
