@@ -18,9 +18,6 @@ library(doParallel)
 library(foreach)
 
 
-# Access the weekly drought shapefile download script (located in your working directory)
-source('drought_monitoring_download_unzip_plot.R')
-
 
 #### CONSTANTS ####
 
@@ -30,15 +27,18 @@ source('drought_monitoring_download_unzip_plot.R')
 registerDoParallel() 
 
 ## Set working directory
-main_path <- "/home/brun/SNAP/EcologicalDrought"
+main_path <- "/Users/brun/GitHub/gitSNAPP/ecological-drought"
 setwd(main_path)
+
+# Access the weekly drought shapefile download script (located in your working directory)
+source('drought_monitoring_download_unzip_plot.R')
 
 # Path to the admin shapefile used to extract percent area under various drought classes
 admin_path <- main_path
 #admin_path <- "/Users/brun/Data/Tiger"
 # Full path and filename
 extract_shpname <- "tl_2014_us_state.shp"
-admin_shp <- file.path(admin_path,shp_name)
+admin_shp <- file.path(admin_path,extract_shpname)
 
 # Output directory
 output_directory <- file.path(main_path,'output')
