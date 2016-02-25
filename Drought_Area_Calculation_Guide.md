@@ -1,10 +1,10 @@
 # How to calculate percent area under drought using U.S. Drought Monitor weekly data
 
-**Date**: February 22, 2016
+**Date**: February 25, 2016
 
 **Script name**: intersect_shapefiles.R
 
-**Authors**: Gabriel Antunes Daldegan, Ian McCullough and Julien Brun
+**Authors**: NCEAS - Gabriel Antunes Daldegan, Ian McCullough and Julien Brun
 
 **Contact**: scicomp@nceas.ucsb.edu
 
