@@ -37,7 +37,7 @@ setwd(main_path)
 admin_path <- main_path
 #admin_path <- "/Users/brun/Data/Tiger"
 # Full path and filename
-shp_name = "tl_2014_us_state.shp"
+extract_shpname = "tl_2014_us_state.shp"
 admin_shp <- file.path(admin_path,shp_name)
 
 # Output directory
