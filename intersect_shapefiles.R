@@ -37,29 +37,29 @@ setwd(main_path)
 admin_path <- main_path
 #admin_path <- "/Users/brun/Data/Tiger"
 # Full path and filename
-extract_shpname = "tl_2014_us_state.shp"
+extract_shpname <- "tl_2014_us_state.shp"
 admin_shp <- file.path(admin_path,shp_name)
 
 # Output directory
-output_directory = file.path(main_path,'output')
+output_directory <- file.path(main_path,'output')
 
 ## Projection system used for the intersect, here NAD 1983 Albers Equal Area
-NAD83_PROJ ="+proj=aea +lat_1=20 +lat_2=60 +lat_0=40 +lon_0=-96 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs"
+NAD83_PROJ <- "+proj=aea +lat_1=20 +lat_2=60 +lat_0=40 +lon_0=-96 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs"
 
 ## Unique identifier of the polygons of interest (here US States)
-ugeoid = "GEOID"
+ugeoid <- "GEOID"
 
 ## Years to download
-YEAR_START = 2016 # earliest available year = 2000
-YEAR_END = 2016 # if the current year is selected, all available data to date are downloaded
+YEAR_START <- 2016 # earliest available year = 2000
+YEAR_END <- 2016 # if the current year is selected, all available data to date are downloaded
 
 ## Processing options
 # If you want to download the file, set it to TRUE
-download_status = TRUE
+download_status <- TRUE
 # If you want to overwite the file when unzipping, set it to TRUE
-overwrite_status = TRUE
+overwrite_status <- TRUE
 # If you want to plot the shapefile, set it to TRUE
-plotting_status = FALSE
+plotting_status <- FALSE
 
 
 #### FUNCTIONS ####
@@ -92,7 +92,7 @@ drought_area <- function(admin_shp, drought_direc) {
   #drought_direc = directory containing time series of drought area shapefiles
   
   # List the shapefiles for a specific year
-  drought_list = list.files(drought_direc, pattern='.shp$')
+  drought_list <- list.files(drought_direc, pattern='.shp$')
 
   ## Create the output dataframe to store the drought area (pct) time-series
   
@@ -111,7 +111,7 @@ drought_area <- function(admin_shp, drought_direc) {
     shape_weekly_drought_NAlbers <- reproject_shapefile_dir(file.path(drought_direc,shp),NAD83_PROJ)
   
     ## Intersect shapefiles (admin shapefile, drought shapefile)
-    inter.drought = raster::intersect(admin_shp_prj,shape_weekly_drought_NAlbers)
+    inter.drought <- raster::intersect(admin_shp_prj,shape_weekly_drought_NAlbers)
     
     ## Compute Area
     # Calculate areas from intersected polygons, then append as attribute
@@ -173,7 +173,7 @@ print("All the files have been downloaded and unzipped")
 ### COMPUTE THE DROUGHT LEVELS RELATIVE AREA TIME-SERIES####
 
 ## Load and Reproject the shapefile used to extract the drought information
-admin_shp_prj = reproject_shapefile_dir(admin_shp, NAD83_PROJ)
+admin_shp_prj <- reproject_shapefile_dir(admin_shp, NAD83_PROJ)
 
 ## Calculate area for the admin shapefiles in km2
 admin_shp_prj@data$AreaUnit_km2 <- gArea(admin_shp_prj, byid = TRUE)/1e6
@@ -184,13 +184,13 @@ dir.create(output_directory, showWarnings = FALSE)
 ## Compute the percentage are under drought conditions
 for (y in YEAR_START:YEAR_END) {
   # Directory containing the drought shapefiles for a particular year
-  year_path = file.path(main_path, y, 'SHP')
+  year_path <- file.path(main_path, y, 'SHP')
   
   # Compute the percentage area for the different drought classes
   yearly_drought = drought_area(admin_shp = admin_shp, drought_direc = year_path)
   
   # Write the output file
-  filename = paste0(output_directory,'/USAdrought', y, '.csv')
+  filename <- paste0(output_directory,'/USAdrought', y, '.csv')
   write.csv(yearly_drought, file=filename,row.names =FALSE) 
 }
 
