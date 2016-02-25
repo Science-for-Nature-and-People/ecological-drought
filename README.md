@@ -1,3 +1,6 @@
 # SNAP Ecological Drought
-Scripts for SNAP Ecological Drought working group: 
-https://www.nceas.ucsb.edu/featured/carter
+
+Scripts for the [SNAP Ecological Drought working group]( 
+http://www.snap.is/groups/ecological-drought/)
+
+
