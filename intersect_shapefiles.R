@@ -19,7 +19,7 @@ library(foreach)
 
 
 # Access the weekly drought shapefile download script (located in your working directory)
-source('EcoDrought_download_unzip_read_plot.R')
+source('drought_monitoring_download_unzip_plot.R')
 
 
 #### CONSTANTS ####
@@ -30,16 +30,15 @@ source('EcoDrought_download_unzip_read_plot.R')
 registerDoParallel() 
 
 ## Set working directory
-#main_path <- '/Users/mccullough/git_redmine/snap_interns/EcologicalDrought'
-main_path <- "/Users/brun/redmine_git/snap_interns/EcologicalDrought"
-# main_path <- "/home/brun/SNAP/EcologicalDrought"
+main_path <- "/home/brun/SNAP/EcologicalDrought"
 setwd(main_path)
 
 # Path to the admin shapefile used to extract percent area under various drought classes
-# admin_path <- main_path
-admin_path <- "/Users/brun/Data/Tiger"
+admin_path <- main_path
+#admin_path <- "/Users/brun/Data/Tiger"
 # Full path and filename
-admin_shp <- file.path(admin_path,"tl_2014_us_state.shp")
+shp_name = "tl_2014_us_state.shp"
+admin_shp <- file.path(admin_path,shp_name)
 
 # Output directory
 output_directory = file.path(main_path,'output')
