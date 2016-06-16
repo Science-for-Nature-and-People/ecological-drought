@@ -1,6 +1,6 @@
-# SNAP Ecological Drought
+# SNAPP - Ecological Drought
 
 Scripts for the [SNAP Ecological Drought working group]( 
 http://www.snap.is/groups/ecological-drought/)
 
-under the MIT license
+This content is under the MIT license
