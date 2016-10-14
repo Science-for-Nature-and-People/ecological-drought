@@ -94,7 +94,7 @@ drought_area <- function(admin_shp, drought_direc) {
   drought_list <- list.files(drought_direc, pattern='.shp$')
 
   ## Create the output dataframe to store the drought area (pct) time-series
-  # Drought categories, following the Drought Monitoring classification scheme (http://droughtmonitor.unl.edu/AboutUs/ClassificationScheme.aspx)
+  # Drought categories, following the U.S. Drought Monitor classification scheme (http://droughtmonitor.unl.edu/AboutUs/ClassificationScheme.aspx)
   # Coding used: 0 = D0;	1 = D1; 2 =	D2; 3 =	D3; 4 =	D4 and 10 = No drought 
   DroughtClass = c(0:4,10)
   
