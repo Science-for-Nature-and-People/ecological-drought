@@ -1,9 +1,9 @@
 #############################################################################################################
-### Calculate percent area in drought in administrative boundaries using U.S. Drought Monitor Weekly Data ###
-### For the SNAP working group Ecological Drought - https://www.nceas.ucsb.edu/projects/12703             ###  
+### Calculate the percentage of area under drought conditions within any polygon (county, watershed, ..)  ### 
+### provided in the shapfile format using U.S. Drought Monitor Weekly Data.                               ###
+### SNAPP working group Ecological Drought - https://www.nceas.ucsb.edu/projects/12703                    ###  
 ###                                                                                                       ###
 ### Created on: Feb 3, 2016                                                                               ###
-### Last updated: Feb 22, 2016                                                                            ###
 ### Authors: Gabriel Antunes Daldegan (gdaldegan@nceas.ucsb.edu), Ian McCullough (immccull@gmail.com)     ###
 ###          Julien Brun (brun@nceas.ucsb.edu)                                                            ###
 ### Contact: scicomp@nceas.ucsb.edu                                                                       ###
