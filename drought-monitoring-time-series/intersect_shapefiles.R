@@ -9,7 +9,7 @@
 ### Contact: scicomp@nceas.ucsb.edu                                                                       ###
 #############################################################################################################
 
-### Load necessary R packages ###
+### Load necessary R packages ####
 library(rgeos) # Display of maps
 library(raster) # GIS operations
 library(dplyr) # table manipulations
