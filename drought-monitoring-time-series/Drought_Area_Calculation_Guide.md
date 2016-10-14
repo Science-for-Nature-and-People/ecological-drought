@@ -9,7 +9,7 @@
 **Contact**: scicomp@nceas.ucsb.edu
 
 ## Overview: 
-The script [intersect\_shapefiles.R](drought_monitoring_download_unzip_plot.R) calculates the percent area under drought using a user-supplied administrative boundary polygon shapefile (e.g., U.S. states) and U.S. Drought Monitor weekly data. The user supplies year(s) of interest and annual .csv files are generated as output. It relies on the script [drought\_monitoring\_download\_unzip\_plot.R](intersect_shapefiles.R) to download and unzipp the [US Drought Monitor](http://droughtmonitor.unl.edu) shapefiles.
+The script [intersect\_shapefiles.R](intersect_shapefiles.R) calculates the percent area under drought using a user-supplied administrative boundary polygon shapefile (e.g., U.S. states) and U.S. Drought Monitor weekly data. The user supplies year(s) of interest and annual .csv files are generated as output. It relies on the script [drought\_monitoring\_download\_unzip\_plot.R](drought_monitoring_download_unzip_plot.R) to download and unzipp the [US Drought Monitor](http://droughtmonitor.unl.edu) shapefiles.
 
 ## Detailed summary (by section):
 
