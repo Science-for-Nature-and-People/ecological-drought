@@ -17,6 +17,8 @@ library(dplyr) # table manipulations
 library(doParallel)
 library(foreach)
 
+# Access the weekly drought shapefile download script (located in your working directory)
+source('drought_monitoring_download_unzip_plot.R')
 
 
 #### CONSTANTS ####
@@ -30,14 +32,11 @@ registerDoParallel()
 main_path <- "/Users/brun/GitHub/gitSNAPP/ecological-drought"
 setwd(main_path)
 
-# Access the weekly drought shapefile download script (located in your working directory)
-source('drought_monitoring_download_unzip_plot.R')
-
+## Input files
 # Path to the admin shapefile used to extract percent area under various drought classes
 admin_path <- main_path
-#admin_path <- "/Users/brun/Data/Tiger"
+admin_path <- "/Users/brun/Data/Tiger"
 # Full path and filename
-extract_shpname <- "tl_2014_us_state.shp"
 admin_shp <- file.path(admin_path,extract_shpname)
 
 # Output directory
@@ -89,14 +88,14 @@ reproject_shapefile_dir <- function(shapefile_folder, proj4_string) {
 drought_area <- function(admin_shp, drought_direc) {
   ## DEFINITION of ARGUMENTS
   #admin_shp = single shapefile of administrative boundaries (e.g., US states, counties)
-  #drought_direc = directory containing time series of drought area shapefiles
+  #drought_direc = directory containing time-series of drought area shapefiles
   
   # List the shapefiles for a specific year
   drought_list <- list.files(drought_direc, pattern='.shp$')
 
   ## Create the output dataframe to store the drought area (pct) time-series
-  
-  # Drought categories
+  # Drought categories, following the Drought Monitoring classification scheme (http://droughtmonitor.unl.edu/AboutUs/ClassificationScheme.aspx)
+  # Coding used: 0 = D0;	1 = D1; 2 =	D2; 3 =	D3; 4 =	D4 and 10 = No drought 
   DroughtClass = c(0:4,10)
   
   # All admin units
@@ -125,7 +124,7 @@ drought_area <- function(admin_shp, drought_direc) {
     # Add the Drought Area
     drought_week <- left_join(drought_ts,drought_area, by=c(ugeoid, 'DM'))
     
-    # Set the drought categorie with no area to 0
+    # Set the drought category with no area to 0
     drought_week[(drought_week$DM<10)&(is.na(drought_week$DroughtArea_km2)),"DroughtArea_km2"] <- 0
     
     # Compute the No Drought area per admin unit
