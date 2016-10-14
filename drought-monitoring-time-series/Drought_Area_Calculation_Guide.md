@@ -9,7 +9,7 @@
 **Contact**: scicomp@nceas.ucsb.edu
 
 ## Overview: 
-The script [intersect\_shapefiles.R](drought_monitoring_download_unzip_plot.R) calculates the percent area under drought using a user-supplied administrative boundary polygon shapefile (e.g., U.S. states) and U.S. Drought Monitor weekly data. The user supplies year(s) of interest and annual .csv files are generated as output. It relies on the script [drought\_monitoring\_download\_unzip\_plot.R](intersect_shapefiles.R) to download and unzipp the [US Drought Monitor](http://droughtmonitor.unl.edu) shapefiles.
+The script [intersect\_shapefiles.R](intersect_shapefiles.R) calculates the percent area under drought using a user-supplied administrative boundary polygon shapefile (e.g., U.S. states) and U.S. Drought Monitor weekly data. The user supplies year(s) of interest and annual .csv files are generated as output. It relies on the script [drought\_monitoring\_download\_unzip\_plot.R](drought_monitoring_download_unzip_plot.R) to download and unzipp the [US Drought Monitor](http://droughtmonitor.unl.edu) shapefiles.
 
 ## Detailed summary (by section):
 
@@ -21,17 +21,17 @@ This script makes use of several R libraries that perform GIS operations (rgeos,
 
 Most of the specifications in this section may be left alone. There are several places within this section, however, in which the user must supply necessary information for the script to run smoothly. These include:
 
-main\_path: path to your project working directory.
+_main\_path_: path to your project working directory.
 
-admin\_path: path to the shapefile contining the units you want to use for the drought percentage area computation
+_admin\_path_: path to the shapefile contining the units you want to use for the drought percentage area computation
 
-extract\_shpname: name of your administrative boundary polygon shapefile (e.g., ‘US\_states.shp’), which should be located in your working directory (main_path). Be sure to use single or double quotation marks and to include the .shp extension for the shapefile.
+_extract\_shpname_: name of your administrative boundary polygon shapefile (e.g., ‘US\_states.shp’), which should be located in your working directory (main_path). Be sure to use single or double quotation marks and to include the .shp extension for the shapefile.
 
-ugeoid: field name of the unique identifier of your polygons you want to use to calculate the percentage drought area.
+_ugeoid_: field name of the unique identifier of your polygons you want to use to calculate the percentage drought area.
 
-YEAR\_START: first year to analyze (e.g., 2000) (earliest available year)
+_YEAR\_START_: first year to analyze (e.g., 2000) (earliest available year)
 
-YEAR\_END: last year to analyze (e.g., 2016)
+_YEAR\_END_: last year to analyze (e.g., 2016)
 Note: if the current year is selected, all available data to date for that year are used. The start and end years may be the same year. We did not build in the capability to download portions of years.
 
 ###Functions
